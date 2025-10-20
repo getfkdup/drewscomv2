@@ -1,0 +1,105 @@
+
+:root{
+  --bg:#ffffff;
+  --ink:#0e1a2d;
+  --muted:#5a6b86;
+  --line:#e6edf7;
+  --blue:#2f83ff;
+  --blue-2:#5aa0ff;
+  --panel:#f7faff;
+  --shadow:0 14px 30px rgba(15,35,75,.12);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink); background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%; height:auto}
+a{color:var(--blue); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1200px,92%); margin:0 auto}
+
+/* Sticky header (transparent → solid on scroll) */
+.sitebar{
+  position:sticky; top:0; z-index:30;
+  background:transparent;
+  transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+  border-bottom:1px solid transparent;
+}
+.sitebar.scrolled{
+  background:#fffffff2;
+  border-color:var(--line);
+  box-shadow:var(--shadow);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
+.brand{display:flex; align-items:center; gap:10px}
+.brand img{height:44px}
+.brand .name{font-weight:900; letter-spacing:.5px; font-size:1.4rem}
+
+.navlinks{display:none; gap:18px}
+.navlinks a{color:var(--ink)}
+@media (min-width: 900px){ .navlinks{display:flex} }
+
+.menu-btn{background:transparent; border:1px solid var(--line); padding:8px 12px; border-radius:10px; color:var(--ink)}
+@media (min-width: 900px){ .menu-btn{display:none} }
+
+.cta{background:var(--blue); color:#fff; padding:10px 16px; border-radius:12px; border:none; font-weight:800; box-shadow:var(--shadow);}
+.cta.ghost{background:transparent; color:var(--ink); border:1px solid var(--line)}
+
+/* Hero */
+.hero{
+  position:relative; isolation:isolate; border-bottom:1px solid var(--line);
+  background:url('hero-large.jpg') center/cover no-repeat;
+}
+.hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.9)); z-index:0}
+.hero .wrap{position:relative; z-index:1; padding:80px 0}
+.kicker{color:var(--blue); text-transform:uppercase; font-weight:800; font-size:12px; letter-spacing:.7px}
+h1{font-size: clamp(36px, 5.6vw, 64px); margin: 6px 0 8px}
+.lead{font-size: clamp(16px, 2.4vw, 20px); color:var(--muted); max-width: 70ch}
+.actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+
+/* Sections */
+.section{padding:56px 0}
+.section.alt{background:var(--panel)}
+.section.bg{background:url('section-bg.jpg') center/cover no-repeat}
+
+.grid{display:grid; gap:18px}
+.services .grid{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; box-shadow:var(--shadow);
+}
+.card .icon{font-size:26px}
+
+.steps{display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
+.step{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
+
+.portfolio{grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
+.portfolio img{border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow)}
+
+.testimonials{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+.quote{background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+
+.pricing .tiers{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+.price{font-size:32px; font-weight:900; color:var(--blue)}
+
+.faq{max-width:900px}
+.faq details{border:1px solid var(--line); border-radius:12px; padding:12px 14px; background:#fff; margin:10px 0}
+.faq summary{cursor:pointer; font-weight:700; color:#143255}
+.faq p{color:#385071}
+
+/* Drawer (mobile nav) */
+.drawer{position:fixed; inset:0; display:none; background:rgba(0,0,0,.45); z-index:50}
+.drawer.open{display:block}
+.panel{position:absolute; right:0; top:0; width:min(80%,360px); height:100%; background:#ffffff; border-left:1px solid var(--line); padding:18px}
+.panel a{display:block; padding:12px 6px; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
+.close{background:transparent; border:1px solid var(--line); padding:8px 10px; border-radius:8px}
+
+/* Footer */
+footer{border-top:1px solid var(--line); padding:30px 0; color:#385071; font-size:14px}
+footer .cols{display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:18px}
+small{color:#6d84a6}
